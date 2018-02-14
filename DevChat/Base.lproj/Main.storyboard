@@ -60,6 +60,8 @@
                     </view>
                     <connections>
                         <outlet property="previewView" destination="csH-03-sEY" id="3EI-Bb-URK"/>
+                        <outlet property="recordButton" destination="AbO-FG-YU5" id="TyP-KQ-QcJ"/>
+                        <outlet property="switchCameraButton" destination="f71-c6-gPx" id="w1H-Nc-3cn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
