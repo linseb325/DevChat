@@ -21,6 +21,7 @@
 		C8CEDCF1203126630053951E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CEDCEF203126630053951E /* Main.storyboard */; };
 		C8CEDCF3203126630053951E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8CEDCF2203126630053951E /* Assets.xcassets */; };
 		C8CEDCF6203126630053951E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8CEDCF4203126630053951E /* LaunchScreen.storyboard */; };
+		C8E82AA4203BADD600491A7F /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E82AA3203BADD600491A7F /* AuthService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C8CEDCF2203126630053951E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8CEDCF5203126630053951E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8CEDCF7203126630053951E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E82AA3203BADD600491A7F /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		CB666BB8AA9D8C301A63C4B8 /* Pods-DevChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DevChat.release.xcconfig"; path = "Pods/Target Support Files/Pods-DevChat/Pods-DevChat.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				C8CEDCFD203126710053951E /* Controller */,
 				C84D15582033BAAE009FEB16 /* Protocols */,
 				C836452220312D7800BAD997 /* View */,
+				C8E82AA2203BADBB00491A7F /* Services */,
 				C84D155D2033D3B1009FEB16 /* Supporting Files */,
 				C8721A2C20312ED900DD0B27 /* PhotoCaptureDelegate.swift */,
 				C8CEDCF7203126630053951E /* Info.plist */,
@@ -133,6 +136,14 @@
 				C83D34F0203A35D0001C0AED /* LoginVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		C8E82AA2203BADBB00491A7F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				C8E82AA3203BADD600491A7F /* AuthService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		F1B54C7C3E4DEB04AADF4DDB /* Pods */ = {
@@ -285,6 +296,7 @@
 				C88C3D182038BA580021C1AC /* RoundTextField.swift in Sources */,
 				C83D34F1203A35D0001C0AED /* LoginVC.swift in Sources */,
 				C84D155A2033BAD6009FEB16 /* AppleCameraVCDelegate.swift in Sources */,
+				C8E82AA4203BADD600491A7F /* AuthService.swift in Sources */,
 				C8721A2D20312ED900DD0B27 /* PhotoCaptureDelegate.swift in Sources */,
 				C836452020312D5200BAD997 /* ApplePreviewView.swift in Sources */,
 			);

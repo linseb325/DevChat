@@ -25,8 +25,9 @@ class CameraVC: AppleCameraViewController, AppleCameraVCDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        // Load login screen if nobody is logged in.
+        
         guard Auth.auth().currentUser != nil else {
-            // Load login screen if nobody is logged in.
             performSegue(withIdentifier: "toLoginVC", sender: nil)
             return
         }

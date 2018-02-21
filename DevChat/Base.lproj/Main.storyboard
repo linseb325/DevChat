@@ -186,6 +186,9 @@
                                                 <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="loginButtonPressed:" destination="miI-af-DQo" eventType="touchUpInside" id="1EQ-Gs-JTR"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -208,10 +211,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="cKF-Ej-jyB"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="5NP-GW-8qZ" id="OCG-26-Odl"/>
+                        <outlet property="passwordTextField" destination="ZK9-I5-dw9" id="Tzz-IT-uMG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4eI-C3-PID" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="704.79999999999995" y="33.733133433283363"/>
+            <point key="canvasLocation" x="706" y="45"/>
         </scene>
     </scenes>
     <resources>

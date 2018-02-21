@@ -21,10 +21,9 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
     override func viewDidLoad() {
 		super.viewDidLoad()
         
+		// Disable UI. The UI is enabled if and only if the session starts running.
         self.delegate?.shouldEnableCameraUI(false)
         self.delegate?.shouldEnableRecordUI(false)
-		
-		// Disable UI. The UI is enabled if and only if the session starts running.
         /*
 		photoButton.isEnabled = false
 		livePhotoModeButton.isEnabled = false
@@ -313,7 +312,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 				}
 			} else {
 				DispatchQueue.main.async {
-					self.resumeButton.isHidden = true
+					// self.resumeButton.isHidden = true
 				}
 			}
 		}
@@ -324,7 +323,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 		case movie = 1
 	}
 
-	@IBOutlet private weak var captureModeControl: UISegmentedControl!
+	// @IBOutlet private weak var captureModeControl: UISegmentedControl!
 	
 	@IBAction private func toggleCaptureMode(_ captureModeControl: UISegmentedControl) {
 		captureModeControl.isEnabled = false
@@ -352,8 +351,8 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 					self.photoOutput.isLivePhotoCaptureEnabled = true
 					
 					DispatchQueue.main.async {
-						self.livePhotoModeButton.isEnabled = true
-						self.livePhotoModeButton.isHidden = false
+						// self.livePhotoModeButton.isEnabled = true
+						// self.livePhotoModeButton.isHidden = false
 					}
 				}
                 
@@ -361,16 +360,16 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
                     self.photoOutput.isDepthDataDeliveryEnabled = true
 
                     DispatchQueue.main.async {
-                        self.depthDataDeliveryButton.isHidden = false
-                        self.depthDataDeliveryButton.isEnabled = true
+                        // self.depthDataDeliveryButton.isHidden = false
+                        // self.depthDataDeliveryButton.isEnabled = true
                     }
                 }
 				
 				self.session.commitConfiguration()
 			}
 		} else if captureModeControl.selectedSegmentIndex == CaptureMode.movie.rawValue {
-			livePhotoModeButton.isHidden = true
-            depthDataDeliveryButton.isHidden = true
+			// livePhotoModeButton.isHidden = true
+            // depthDataDeliveryButton.isHidden = true
 			
 			sessionQueue.async {
  				let movieFileOutput = AVCaptureMovieFileOutput()
@@ -402,7 +401,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 	
 	// MARK: Device Configuration
 		
-	@IBOutlet private weak var cameraUnavailableLabel: UILabel!
+	// @IBOutlet private weak var cameraUnavailableLabel: UILabel!
 	private let videoDeviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInDualCamera],
                                                                                mediaType: .video, position: .unspecified)
     
@@ -410,9 +409,9 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
         
         self.delegate?.shouldEnableRecordUI(false)
         self.delegate?.shouldEnableCameraUI(false)
-		photoButton.isEnabled = false
-		livePhotoModeButton.isEnabled = false
-		captureModeControl.isEnabled = false
+		// photoButton.isEnabled = false
+		// livePhotoModeButton.isEnabled = false
+		// captureModeControl.isEnabled = false
 		
 		sessionQueue.async {
 			let currentVideoDevice = self.videoDeviceInput.device
@@ -485,11 +484,13 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 			DispatchQueue.main.async {
                 self.delegate?.shouldEnableCameraUI(true)
                 self.delegate?.shouldEnableRecordUI(self.movieFileOutput != nil)
+                /*
 				self.photoButton.isEnabled = true
 				self.livePhotoModeButton.isEnabled = true
 				self.captureModeControl.isEnabled = true
                 self.depthDataDeliveryButton.isEnabled = self.photoOutput.isDepthDataDeliveryEnabled
                 self.depthDataDeliveryButton.isHidden = !self.photoOutput.isDepthDataDeliverySupported
+                */
 			}
 		}
 	}
@@ -533,7 +534,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 	
 	private var inProgressPhotoCaptureDelegates = [Int64: PhotoCaptureProcessor]()
 	
-	@IBOutlet private weak var photoButton: UIButton!
+	// @IBOutlet private weak var photoButton: UIButton!
 	@IBAction private func capturePhoto(_ photoButton: UIButton) {
         /*
 			Retrieve the video preview layer's video orientation on the main queue before
@@ -600,9 +601,9 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 						let inProgressLivePhotoCapturesCount = self.inProgressLivePhotoCapturesCount
 						DispatchQueue.main.async {
 							if inProgressLivePhotoCapturesCount > 0 {
-								self.capturingLivePhotoLabel.isHidden = false
+								// self.capturingLivePhotoLabel.isHidden = false
 							} else if inProgressLivePhotoCapturesCount == 0 {
-								self.capturingLivePhotoLabel.isHidden = true
+								// self.capturingLivePhotoLabel.isHidden = true
 							} else {
 								print("Error: In progress live photo capture count is less than 0")
 							}
@@ -638,7 +639,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 	
 	private var livePhotoMode: LivePhotoMode = .off
 	
-	@IBOutlet private weak var livePhotoModeButton: UIButton!
+	// @IBOutlet private weak var livePhotoModeButton: UIButton!
 	
     @IBAction private func toggleLivePhotoMode(_ livePhotoModeButton: UIButton) {
         sessionQueue.async {
@@ -647,9 +648,9 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
             
             DispatchQueue.main.async {
                 if livePhotoMode == .on {
-                    self.livePhotoModeButton.setTitle(NSLocalizedString("Live Photo Mode: On", comment: "Live photo mode button on title"), for: [])
+                    // self.livePhotoModeButton.setTitle(NSLocalizedString("Live Photo Mode: On", comment: "Live photo mode button on title"), for: [])
                 } else {
-                    self.livePhotoModeButton.setTitle(NSLocalizedString("Live Photo Mode: Off", comment: "Live photo mode button off title"), for: [])
+                    // self.livePhotoModeButton.setTitle(NSLocalizedString("Live Photo Mode: Off", comment: "Live photo mode button off title"), for: [])
                 }
             }
         }
@@ -657,7 +658,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
     
     private var depthDataDeliveryMode: DepthDataDeliveryMode = .off
     
-    @IBOutlet private weak var depthDataDeliveryButton: UIButton!
+    // @IBOutlet private weak var depthDataDeliveryButton: UIButton!
     
     @IBAction func toggleDepthDataDeliveryMode(_ depthDataDeliveryButton: UIButton) {
         sessionQueue.async {
@@ -666,9 +667,9 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
             
             DispatchQueue.main.async {
                 if depthDataDeliveryMode == .on {
-                    self.depthDataDeliveryButton.setTitle(NSLocalizedString("Depth Data Delivery: On", comment: "Depth Data Delivery button on title"), for: [])
+                    // self.depthDataDeliveryButton.setTitle(NSLocalizedString("Depth Data Delivery: On", comment: "Depth Data Delivery button on title"), for: [])
                 } else {
-                    self.depthDataDeliveryButton.setTitle(NSLocalizedString("Depth Data Delivery: Off", comment: "Depth Data Delivery button off title"), for: [])
+                    // self.depthDataDeliveryButton.setTitle(NSLocalizedString("Depth Data Delivery: Off", comment: "Depth Data Delivery button off title"), for: [])
                 }
             }
         }
@@ -676,7 +677,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
     
 	private var inProgressLivePhotoCapturesCount = 0
 	
-	@IBOutlet var capturingLivePhotoLabel: UILabel!
+	// @IBOutlet var capturingLivePhotoLabel: UILabel!
 	
 	// MARK: Recording Movies
 	
@@ -684,7 +685,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 	
 	private var backgroundRecordingID: UIBackgroundTaskIdentifier?
     
-	@IBOutlet private weak var resumeButton: UIButton!
+	// @IBOutlet private weak var resumeButton: UIButton!
 	
     func toggleMovieRecording() {
 		guard let movieFileOutput = self.movieFileOutput else {
@@ -699,7 +700,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 		*/
         self.delegate?.shouldEnableRecordUI(false)
         self.delegate?.shouldEnableCameraUI(false)
-		captureModeControl.isEnabled = false
+		// captureModeControl.isEnabled = false
 		
 		/*
 			Retrieve the video preview layer's video orientation on the main queue
@@ -817,7 +818,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 			// Only enable the ability to change camera if the device has more than one camera.
             self.delegate?.shouldEnableCameraUI(self.videoDeviceDiscoverySession.uniqueDevicePositionsCount > 1)
             self.delegate?.shouldEnableRecordUI(true)
-			self.captureModeControl.isEnabled = true
+			// self.captureModeControl.isEnabled = true
             self.delegate?.canStartRecording()
 		}
 	}
@@ -838,12 +839,14 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 				// Only enable the ability to change camera if the device has more than one camera.
                 self.delegate?.shouldEnableCameraUI(isSessionRunning && self.videoDeviceDiscoverySession.uniqueDevicePositionsCount > 1)
                 self.delegate?.shouldEnableRecordUI(isSessionRunning && self.movieFileOutput != nil)
+                /*
 				self.photoButton.isEnabled = isSessionRunning
 				self.captureModeControl.isEnabled = isSessionRunning
 				self.livePhotoModeButton.isEnabled = isSessionRunning && isLivePhotoCaptureEnabled
 				self.livePhotoModeButton.isHidden = !(isSessionRunning && isLivePhotoCaptureSupported)
 				self.depthDataDeliveryButton.isEnabled = isSessionRunning && isDepthDeliveryDataEnabled
 				self.depthDataDeliveryButton.isHidden = !(isSessionRunning && isDepthDeliveryDataSupported)
+                */
 			}
 		}
 		keyValueObservations.append(keyValueObservation)
@@ -895,12 +898,12 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 					self.isSessionRunning = self.session.isRunning
 				} else {
 					DispatchQueue.main.async {
-						self.resumeButton.isHidden = false
+						// self.resumeButton.isHidden = false
 					}
 				}
 			}
 		} else {
-            resumeButton.isHidden = false
+            // resumeButton.isHidden = false
 		}
 	}
 	
@@ -925,19 +928,19 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 				showResumeButton = true
 			} else if reason == .videoDeviceNotAvailableWithMultipleForegroundApps {
 				// Simply fade-in a label to inform the user that the camera is unavailable.
-				cameraUnavailableLabel.alpha = 0
-				cameraUnavailableLabel.isHidden = false
+				// cameraUnavailableLabel.alpha = 0
+				// cameraUnavailableLabel.isHidden = false
 				UIView.animate(withDuration: 0.25) {
-					self.cameraUnavailableLabel.alpha = 1
+					// self.cameraUnavailableLabel.alpha = 1
 				}
 			}
 			
 			if showResumeButton {
 				// Simply fade-in a button to enable the user to try to resume the session running.
-				resumeButton.alpha = 0
-				resumeButton.isHidden = false
+				// resumeButton.alpha = 0
+				// resumeButton.isHidden = false
 				UIView.animate(withDuration: 0.25) {
-					self.resumeButton.alpha = 1
+					// self.resumeButton.alpha = 1
 				}
 			}
 		}
@@ -947,6 +950,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 	func sessionInterruptionEnded(notification: NSNotification) {
 		print("Capture session interruption ended")
 		
+        /*
 		if !resumeButton.isHidden {
 			UIView.animate(withDuration: 0.25,
 				animations: {
@@ -965,6 +969,7 @@ class AppleCameraViewController: UIViewController, AVCaptureFileOutputRecordingD
 				}
 			)
 		}
+        */
 	}
 }
 
