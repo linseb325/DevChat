@@ -23,7 +23,7 @@ class LoginVC: UIViewController {
     
     @IBAction func loginButtonPressed(_ sender: Any) {
         if let email = emailTextField.text, let password = passwordTextField.text, (email.count > 0 && password.count > 0) {
-            AuthService.instance.login(email: email, password: password, onComplete: { (errorMessage, data) in
+            AuthService.instance.signIn(email: email, password: password, onComplete: { (errorMessage, data) in
                 // Check for sign-in errors
                 guard errorMessage == nil else {
                     let alertController = UIAlertController(title: "Auth Error", message: errorMessage!, preferredStyle: .alert)

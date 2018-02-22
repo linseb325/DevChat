@@ -19,7 +19,7 @@ class AuthService {
         return _instance
     }
     
-    func login(email: String, password: String, onComplete: Completion?) {
+    func signIn(email: String, password: String, onComplete: Completion?) {
         // Login stuff
         Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
             if error != nil {
