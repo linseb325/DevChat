@@ -33,6 +33,8 @@ class AuthService {
                             } else {
                                 // No error creating a new user.
                                 if user?.uid != nil {
+                                    // Save the new user into the database.
+                                    DataService.instance.saveUser(uid: user!.uid)
                                     // Sign in for the newly created user.
                                     Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
                                         if error != nil {

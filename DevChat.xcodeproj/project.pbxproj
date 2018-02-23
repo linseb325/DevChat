@@ -15,6 +15,7 @@
 		C84D155C2033D3A7009FEB16 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C84D155B2033D3A7009FEB16 /* GoogleService-Info.plist */; };
 		C8721A2D20312ED900DD0B27 /* PhotoCaptureDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8721A2C20312ED900DD0B27 /* PhotoCaptureDelegate.swift */; };
 		C88C3D182038BA580021C1AC /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88C3D172038BA580021C1AC /* RoundTextField.swift */; };
+		C88F7FF3203F6C70006EA978 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88F7FF2203F6C70006EA978 /* DataService.swift */; };
 		C8B58F512038D45300050399 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8B58F502038D45300050399 /* RoundButton.swift */; };
 		C8CEDCEC203126630053951E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CEDCEB203126630053951E /* AppDelegate.swift */; };
 		C8CEDCEE203126630053951E /* CameraVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8CEDCED203126630053951E /* CameraVC.swift */; };
@@ -34,6 +35,7 @@
 		C84D155B2033D3A7009FEB16 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C8721A2C20312ED900DD0B27 /* PhotoCaptureDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoCaptureDelegate.swift; sourceTree = "<group>"; };
 		C88C3D172038BA580021C1AC /* RoundTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		C88F7FF2203F6C70006EA978 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		C8B58F502038D45300050399 /* RoundButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		C8CEDCE8203126630053951E /* DevChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8CEDCEB203126630053951E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 			isa = PBXGroup;
 			children = (
 				C8E82AA3203BADD600491A7F /* AuthService.swift */,
+				C88F7FF2203F6C70006EA978 /* DataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				C836452120312D5200BAD997 /* AppleCameraViewController.swift in Sources */,
 				C8CEDCEC203126630053951E /* AppDelegate.swift in Sources */,
 				C88C3D182038BA580021C1AC /* RoundTextField.swift in Sources */,
+				C88F7FF3203F6C70006EA978 /* DataService.swift in Sources */,
 				C83D34F1203A35D0001C0AED /* LoginVC.swift in Sources */,
 				C84D155A2033BAD6009FEB16 /* AppleCameraVCDelegate.swift in Sources */,
 				C8E82AA4203BADD600491A7F /* AuthService.swift in Sources */,
