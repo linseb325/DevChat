@@ -9,6 +9,8 @@
 import Foundation
 import FirebaseDatabase
 
+let USERS_CHILD = "users"
+
 class DataService {
     
     private static let _instance = DataService()
@@ -21,11 +23,15 @@ class DataService {
         return Database.database().reference()
     }
     
+    var usersRef: DatabaseReference {
+        return mainRef.child(USERS_CHILD)
+    }
+    
     // Adds a user to the database.
     func saveUser(uid: String) {
         let profileInfo: [String : Any] = ["firstName" : "",
                                        "lastName" : ""]
-        mainRef.child("users").child(uid).child("profileInfo").setValue(profileInfo)
+        mainRef.child(USERS_CHILD).child(uid).child("profileInfo").setValue(profileInfo)
     }
     
     
